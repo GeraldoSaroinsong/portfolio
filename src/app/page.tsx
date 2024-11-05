@@ -96,9 +96,9 @@ export default function Home() {
           <h1 className="text-3xl">Hello World👋</h1>
           <div className="border-8 border-yellow-300 p-6 flex flex-col gap-8">
             <h1 className="text-8xl">I'm Geraldo</h1>
-            <p className="capitalize">
+            <p className="capitalize font-sans">
               beginner web developer trying to learn and improve myself in the
-              world of web developing
+              world of fullstack web developing
             </p>
           </div>
           <div className="flex flex-col gap-4 items-center ">
@@ -115,13 +115,12 @@ export default function Home() {
       {/* Projects */}
       <section className="w-3/4 m-auto mt-10 flex flex-col gap-6 divide-y-8 divide-yellow-300">
         <Heading name="My Projects📝" desc="some projects i have worked on" />
-        <div className="flex flex-row flex-wrap gap-4 pt-6">
-          {/* Project Items */}
+        <div className="flex flex-row flex-wrap gap-4 pt-12">
           <Carousel>
             <CarouselContent>
-              {projects.map((projectItem: any) => {
+              {projects.map((projectItem: any, index: number) => {
                 return (
-                  <CarouselItem className="basis-1/3">
+                  <CarouselItem key={index} className="basis-1/3">
                     <div className="flex flex-col rounded-xl bg-white text-black w-full">
                       <div className="overflow-hidden rounded-t-xl">
                         <img
@@ -153,7 +152,7 @@ export default function Home() {
                         </div>
                         <div>
                           <h1 className="text-xl font-semibold">Role</h1>
-                          <p className="text-sm">Full Stack Dev</p>
+                          <p className="text-sm font-sans">Full Stack Dev</p>
                         </div>
                         <div className="flex justify-end p-1">
                           <button className="p-2 rounded-md bg-black text-white">
@@ -174,7 +173,7 @@ export default function Home() {
       {/* Tech Stack */}
       <section className="w-3/4 m-auto mt-32 flex flex-col gap-6 divide-y-8 divide-yellow-300">
         <Heading name="Tech Stack⚙️" desc="the tools i've used" />
-        <div className="flex flex-row flex-wrap gap-6 pt-6">
+        <div className="flex flex-row flex-wrap justify-center gap-6 pt-12">
           {tools.map((val: any) => {
             return (
               <div className="p-6 text-6xl text-black bg-white flex flex-col items-center gap-6 rounded-xl hover:scale-105 transition duration-100">
@@ -188,7 +187,7 @@ export default function Home() {
       {/* About Me */}
       <section className="w-3/4 m-auto mt-32 flex flex-col gap-6 divide-y-8 divide-yellow-300">
         <Heading name="About Me😁" desc="let's get to know eachother" />
-        <p className="pt-6 text-xl text-white">
+        <p className="pt-6 text-xl text-white text-center">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
           consequatur doloribus soluta adipisci nam illum, odio alias saepe
           inventore excepturi pariatur voluptatibus facilis magni accusantium

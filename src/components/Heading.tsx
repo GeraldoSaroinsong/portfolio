@@ -8,7 +8,7 @@ interface IHeading {
 
 const Heading: React.FC<IHeading> = ({ name, desc }) => {
   return (
-    <div className="text-white">
+    <div className="text-white text-center">
       <h1 className="text-3xl font-semibold">{name}</h1>
       <p className="capitalize text-xl">{desc}</p>
     </div>
