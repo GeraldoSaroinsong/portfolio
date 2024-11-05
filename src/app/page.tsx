@@ -120,7 +120,7 @@ export default function Home() {
               {projects.map((projectItem: any, index: number) => {
                 return (
                   <CarouselItem key={index} className="basis-full md:basis-1/3">
-                    <div className="flex flex-col rounded-xl bg-white text-black w-full h-4/5">
+                    <div className="flex flex-col rounded-xl bg-white text-black w-full h-full">
                       <div className="overflow-hidden rounded-t-xl h-1/3">
                         <img
                           src={projectItem.image}
@@ -175,7 +175,7 @@ export default function Home() {
         </div>
       </section>
       {/* Tech Stack */}
-      <section className="w-[90%] md:w-3/4 m-auto mt-1 md:mt-32 flex flex-col gap-6 divide-y-8 divide-yellow-300">
+      <section className="w-[90%] md:w-3/4 m-auto mt-32 md:mt-32 flex flex-col gap-6 divide-y-8 divide-yellow-300">
         <Heading name="Tech Stack⚙️" desc="the tools i've used" />
         <div className="flex flex-row flex-wrap justify-center gap-4 pt-6">
           {tools.map((val: any, index: number) => {
