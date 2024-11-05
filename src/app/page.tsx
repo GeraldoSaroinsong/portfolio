@@ -125,7 +125,7 @@ export default function Home() {
                       <div className="overflow-hidden rounded-t-xl">
                         <img
                           src={projectItem.image}
-                          alt=""
+                          alt="project item"
                           className="w-full hover:scale-110 transition duration-150 "
                         />
                       </div>
