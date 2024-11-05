@@ -1,5 +1,3 @@
-import { url } from "inspector";
-import Image from "next/image";
 import { FaArrowUp } from "react-icons/fa";
 import { FaHtml5 } from "react-icons/fa";
 import { FaCss3 } from "react-icons/fa";
@@ -95,7 +93,7 @@ export default function Home() {
         <div className="w-1/2 flex flex-col m-auto p-4 rounded-md gap-6 text-center text-white">
           <h1 className="text-3xl">Hello World👋</h1>
           <div className="border-8 border-yellow-300 p-6 flex flex-col gap-8">
-            <h1 className="text-8xl">I'm Geraldo</h1>
+            <h1 className="text-8xl">I&apos;m Geraldo</h1>
             <p className="capitalize font-sans">
               beginner web developer trying to learn and improve myself in the
               world of fullstack web developing
@@ -141,13 +139,18 @@ export default function Home() {
                         <div>
                           <h1 className="text-xl font-semibold">Tech Stack</h1>
                           <div className="flex flex-row gap-2 text-white flex-wrap">
-                            {projectItem.techStack.map((tech: any) => {
-                              return (
-                                <p className="p-1 bg-black rounded-md">
-                                  {tech}
-                                </p>
-                              );
-                            })}
+                            {projectItem.techStack.map(
+                              (tech: any, index: number) => {
+                                return (
+                                  <p
+                                    key={index}
+                                    className="p-1 bg-black rounded-md"
+                                  >
+                                    {tech}
+                                  </p>
+                                );
+                              }
+                            )}
                           </div>
                         </div>
                         <div>
@@ -174,9 +177,12 @@ export default function Home() {
       <section className="w-3/4 m-auto mt-32 flex flex-col gap-6 divide-y-8 divide-yellow-300">
         <Heading name="Tech Stack⚙️" desc="the tools i've used" />
         <div className="flex flex-row flex-wrap justify-center gap-6 pt-12">
-          {tools.map((val: any) => {
+          {tools.map((val: any, index: number) => {
             return (
-              <div className="p-6 text-6xl text-black bg-white flex flex-col items-center gap-6 rounded-xl hover:scale-105 transition duration-100">
+              <div
+                key={index}
+                className="p-6 text-6xl text-black bg-white flex flex-col items-center gap-6 rounded-xl hover:scale-105 transition duration-100"
+              >
                 {val.image}
                 <p>{val.name}</p>
               </div>
