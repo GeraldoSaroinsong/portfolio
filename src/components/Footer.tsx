@@ -11,13 +11,16 @@ const Footer = () => {
         </p>
       </div>
       <div className="flex flex-row gap-4 text-4xl bg-black py-2 px-4 w-fit rounded-md text-yellow-300">
-        <a href="https://www.instagram.com/geraldo.25_/">
+        <a target="_blank" href="https://www.instagram.com/geraldo.25_/">
           <FaInstagram />
         </a>
-        <a href="https://github.com/GeraldoSaroinsong">
+        <a target="_blank" href="https://github.com/GeraldoSaroinsong">
           <FaGithub />
         </a>
-        <a href="https://www.linkedin.com/in/geraldo-saroinsong-961303221/">
+        <a
+          target="_blank"
+          href="https://www.linkedin.com/in/geraldo-saroinsong-961303221/"
+        >
           <FaLinkedin />
         </a>
       </div>

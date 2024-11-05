@@ -9,12 +9,13 @@ const Navbar = () => {
           <span className="underline underline-offset-4">Portfolio</span>
         </h1>
         <h1 className="text-2xl md:text-6xl font-bold">#</h1>
-        <button
-          type="button"
+        <a
+          href="https://wa.me/0895341479858"
+          target="_blank"
           className="p-2 md:px-4 bg-black text-yellow-300 rounded-md text-sm md:text-lg"
         >
           Contact Me
-        </button>
+        </a>
       </div>
     </section>
   );

@@ -103,6 +103,7 @@ export default function Home() {
             <h1 className="capitalize text-white">Check out my github</h1>
             <a
               href="https://github.com/GeraldoSaroinsong"
+              target="_blank"
               className="p-2 bg-yellow-300 rounded-md w-fit hover:scale-110 transition duration-100 text-black"
             >
               Click Here
