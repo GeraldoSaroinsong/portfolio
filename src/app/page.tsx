@@ -63,26 +63,32 @@ export default function Home() {
     {
       name: "HTML",
       image: <FaHtml5 />,
+      link: "https://www.w3schools.com/html/",
     },
     {
       name: "CSS",
       image: <FaCss3 />,
+      link: "https://www.w3schools.com/css/",
     },
     {
       name: "Javascript",
       image: <IoLogoJavascript />,
+      link: "https://www.javascript.com/",
     },
     {
       name: "Typescript",
       image: <SiTypescript />,
+      link: "https://www.typescriptlang.org/",
     },
     {
       name: "Tailwind CSS",
       image: <RiTailwindCssFill />,
+      link: "https://tailwindcss.com/",
     },
     {
       name: "Next JS",
       image: <RiNextjsFill />,
+      link: "https://nextjs.org/",
     },
   ];
 
@@ -180,13 +186,15 @@ export default function Home() {
         <div className="flex flex-row flex-wrap justify-center gap-4 pt-6">
           {tools.map((val: any, index: number) => {
             return (
-              <div
+              <a
                 key={index}
-                className="p-2 md:p-6 text-2xl md:text-6xl text-black bg-white flex flex-col items-center md:gap-6 rounded-xl hover:scale-105 transition duration-100"
+                href={val.link}
+                target="_blank"
+                className="p-2 md:p-4 text-2xl md:text-6xl text-black bg-white flex items-center md:gap-2 rounded-xl hover:scale-105 transition duration-100"
               >
                 {val.image}
-                <p>{val.name}</p>
-              </div>
+                <p className="text-2xl">{val.name}</p>
+              </a>
             );
           })}
         </div>
