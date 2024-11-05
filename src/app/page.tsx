@@ -14,7 +14,6 @@ import {
 } from "@/components/ui/carousel";
 import Heading from "@/components/Heading";
 import Footer from "@/components/Footer";
-import Image from "next/image";
 
 export default function Home() {
   const projects = [
