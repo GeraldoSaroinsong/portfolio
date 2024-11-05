@@ -190,10 +190,10 @@ export default function Home() {
                 key={index}
                 href={val.link}
                 target="_blank"
-                className="p-2 md:p-4 text-2xl md:text-6xl text-black bg-white flex items-center md:gap-2 rounded-xl hover:scale-105 transition duration-100"
+                className="p-2 md:p-4 text-3xl md:text-6xl text-black bg-white flex items-center gap-2 rounded-xl hover:scale-105 transition duration-100"
               >
                 {val.image}
-                <p className="text-2xl">{val.name}</p>
+                <p className="text-base md:text-2xl font-sans">{val.name}</p>
               </a>
             );
           })}
