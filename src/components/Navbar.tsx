@@ -2,7 +2,7 @@
 
 const Navbar = () => {
   return (
-    <section className="p-2 md:p-6 bg-yellow-300">
+    <section className="p-2 bg-yellow-300">
       <div className="w-[90%] md:w-3/4 m-auto flex justify-between items-center">
         <a
           href="https://geraldo-saroinsong.vercel.app"

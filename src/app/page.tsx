@@ -89,7 +89,7 @@ export default function Home() {
   return (
     <div className="font-mono relative">
       {/* Jumbotron */}
-      <section className="flex flex-col items-center w-full h-screen">
+      <section className="flex flex-col items-center w-full h-[90vh]">
         <div className="w-[90%] md:w-1/2 flex flex-col m-auto p-4 rounded-md gap-6 text-center text-white">
           <h1 className="text-xl md:text-3xl">Hello World👋</h1>
           <div className="border-8 border-yellow-300 p-6 flex flex-col gap-8">
