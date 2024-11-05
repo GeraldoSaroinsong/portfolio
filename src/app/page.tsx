@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/carousel";
 import Heading from "@/components/Heading";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 
 export default function Home() {
   const projects = [
@@ -121,7 +122,7 @@ export default function Home() {
                   <CarouselItem key={index} className="basis-1/3">
                     <div className="flex flex-col rounded-xl bg-white text-black w-full">
                       <div className="overflow-hidden rounded-t-xl">
-                        <img
+                        <Image
                           src={projectItem.image}
                           alt="project item"
                           className="w-full hover:scale-110 transition duration-150 "
