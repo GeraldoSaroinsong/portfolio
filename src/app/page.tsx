@@ -120,68 +120,64 @@ export default function Home() {
       {/* Projects */}
       <section className="md:w-3/4 m-auto mt-12 flex flex-col gap-6 divide-y-8 divide-yellow-300">
         <Heading name="My Projects📝" desc="some projects i have worked on" />
-        <div className="w-[70%] md:w-full m-auto flex justify-center gap-4 pt-6 md:pt-12">
-          <Carousel className="w-full">
-            <CarouselContent>
-              {projects.map((projectItem: any, index: number) => {
-                return (
-                  <CarouselItem key={index} className="basis-full md:basis-1/3">
-                    <div className="flex flex-col rounded-xl bg-white text-black w-full h-full">
-                      <div className="overflow-hidden rounded-t-xl h-1/3">
-                        <img
-                          src={projectItem.image}
-                          alt="project item"
-                          className="w-full hover:scale-110 transition duration-150 object-contain"
-                        />
+        <Carousel className="w-[90%] md:w-full m-auto pt-6 md:pt-12">
+          <CarouselContent>
+            {projects.map((projectItem: any, index: number) => {
+              return (
+                <CarouselItem key={index} className="basis-full md:basis-1/3">
+                  <div className="flex flex-col rounded-xl pb-4 md:pb-0 bg-white text-black w-full h-3/4">
+                    <div className="overflow-hidden rounded-t-xl h-1/2">
+                      <img
+                        src={projectItem.image}
+                        alt="project item"
+                        className="w-full hover:scale-110 transition duration-150 object-contain"
+                      />
+                    </div>
+                    <div className="p-4 flex flex-col gap-6 justify-between h-1/2">
+                      <div>
+                        <h1 className="text-xl md:text-2xl font-semibold">
+                          {projectItem.name}
+                        </h1>
+                        <p className="text-sm font-sans">{projectItem.desc}</p>
                       </div>
-                      <div className="p-4 flex flex-col gap-6">
-                        <div>
-                          <h1 className="text-xl md:text-2xl font-semibold">
-                            {projectItem.name}
-                          </h1>
-                          <p className="text-sm font-sans">
-                            {projectItem.desc}
-                          </p>
+                      <div className="hidden md:block">
+                        <h1 className="text-xl font-semibold">Tech Stack</h1>
+                        <div className="flex flex-row gap-2 text-white flex-wrap">
+                          {projectItem.techStack.map(
+                            (tech: any, index: number) => {
+                              return (
+                                <p
+                                  key={index}
+                                  className="p-1 bg-black rounded-md"
+                                >
+                                  {tech}
+                                </p>
+                              );
+                            }
+                          )}
                         </div>
-                        <div className="hidden md:block">
-                          <h1 className="text-xl font-semibold">Tech Stack</h1>
-                          <div className="flex flex-row gap-2 text-white flex-wrap">
-                            {projectItem.techStack.map(
-                              (tech: any, index: number) => {
-                                return (
-                                  <p
-                                    key={index}
-                                    className="p-1 bg-black rounded-md"
-                                  >
-                                    {tech}
-                                  </p>
-                                );
-                              }
-                            )}
-                          </div>
-                        </div>
-                        <div className="hidden md:block">
-                          <h1 className="text-xl font-semibold">Role</h1>
-                          <p className="text-sm font-sans">Full Stack Dev</p>
-                        </div>
-                        <div className="flex justify-center md:justify-end p-1">
-                          <button className="p-2 rounded-md bg-black text-white">
-                            View Project
-                          </button>
-                        </div>
+                      </div>
+                      <div className="hidden md:block">
+                        <h1 className="text-xl font-semibold">Role</h1>
+                        <p className="text-sm font-sans">Full Stack Dev</p>
+                      </div>
+                      <div className="flex justify-center md:justify-end p-1">
+                        <button className="p-2 rounded-md bg-black text-white">
+                          View Project
+                        </button>
                       </div>
                     </div>
-                  </CarouselItem>
-                );
-              })}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
-        </div>
+                  </div>
+                </CarouselItem>
+              );
+            })}
+          </CarouselContent>
+          <CarouselPrevious className="hidden md:flex items-center" />
+          <CarouselNext className="hidden md:flex items-center" />
+        </Carousel>
       </section>
       {/* Tech Stack */}
-      <section className="w-[90%] md:w-3/4 m-auto mt-32 md:mt-32 flex flex-col gap-6 divide-y-8 divide-yellow-300">
+      <section className="w-[90%] md:w-3/4 m-auto md:mt-32 flex flex-col gap-6 divide-y-8 divide-yellow-300">
         <Heading name="Tech Stack⚙️" desc="the tools i've used" />
         <div className="flex flex-row flex-wrap justify-center gap-4 pt-6">
           {tools.map((val: any, index: number) => {
