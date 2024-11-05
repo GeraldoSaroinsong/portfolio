@@ -98,7 +98,7 @@ export default function Home() {
       <section className="flex flex-col items-center w-full h-[90vh]">
         <div className="w-[90%] md:w-1/2 flex flex-col m-auto p-4 rounded-md gap-6 text-center text-white">
           <h1 className="text-xl md:text-3xl">Hello World👋</h1>
-          <div className="border-8 border-yellow-300 p-6 flex flex-col gap-8">
+          <div className="border-8 border-yellow-400 p-6 flex flex-col gap-8">
             <h1 className="text-5xl md:text-8xl">I&apos;m Geraldo</h1>
             <p className="capitalize font-sans">
               beginner web developer trying to learn and improve myself in the
@@ -110,7 +110,7 @@ export default function Home() {
             <a
               href="https://github.com/GeraldoSaroinsong"
               target="_blank"
-              className="p-2 bg-yellow-300 rounded-md w-fit hover:scale-110 transition duration-100 text-black"
+              className="p-2 bg-yellow-400 rounded-md w-fit hover:scale-110 transition duration-100 text-black"
             >
               Click Here
             </a>
@@ -118,7 +118,7 @@ export default function Home() {
         </div>
       </section>
       {/* Projects */}
-      <section className="md:w-3/4 m-auto mt-12 flex flex-col gap-6 divide-y-8 divide-yellow-300">
+      <section className="md:w-3/4 m-auto mt-12 flex flex-col gap-6 divide-y-8 divide-yellow-400">
         <Heading name="My Projects📝" desc="some projects i have worked on" />
         <Carousel className="w-[90%] md:w-full m-auto pt-6 md:pt-12">
           <CarouselContent>
@@ -177,7 +177,7 @@ export default function Home() {
         </Carousel>
       </section>
       {/* Tech Stack */}
-      <section className="w-[90%] md:w-3/4 m-auto md:mt-32 flex flex-col gap-6 divide-y-8 divide-yellow-300">
+      <section className="w-[90%] md:w-3/4 m-auto md:mt-32 flex flex-col gap-6 divide-y-8 divide-yellow-400">
         <Heading name="Tech Stack⚙️" desc="the tools i've used" />
         <div className="flex flex-row flex-wrap justify-center gap-4 pt-6">
           {tools.map((val: any, index: number) => {
@@ -196,7 +196,7 @@ export default function Home() {
         </div>
       </section>
       {/* About Me */}
-      <section className="w-[90%] md:w-3/4 m-auto mt-32 flex flex-col gap-6 divide-y-8 divide-yellow-300">
+      <section className="w-[90%] md:w-3/4 m-auto mt-32 flex flex-col gap-6 divide-y-8 divide-yellow-400">
         <Heading name="About Me😁" desc="let's get to know eachother" />
         <p className="pt-6 text-base md:text-xl text-white text-center">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
@@ -212,7 +212,7 @@ export default function Home() {
       <Footer />
       <a
         href="#"
-        className="fixed p-2 rounded-md text-3xl bg-yellow-300 text-black right-4 md:right-10 bottom-4 md:bottom-10 hover:-translate-y-4 transition duration-150"
+        className="fixed p-2 rounded-md text-3xl bg-yellow-400 text-black right-4 md:right-10 bottom-4 md:bottom-10 hover:-translate-y-4 transition duration-150"
       >
         <FaArrowUp />
       </a>
