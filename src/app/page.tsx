@@ -90,10 +90,10 @@ export default function Home() {
     <div className="font-mono relative">
       {/* Jumbotron */}
       <section className="flex flex-col items-center w-full h-screen">
-        <div className="w-1/2 flex flex-col m-auto p-4 rounded-md gap-6 text-center text-white">
-          <h1 className="text-3xl">Hello World👋</h1>
+        <div className="w-[90%] md:w-1/2 flex flex-col m-auto p-4 rounded-md gap-6 text-center text-white">
+          <h1 className="text-xl md:text-3xl">Hello World👋</h1>
           <div className="border-8 border-yellow-300 p-6 flex flex-col gap-8">
-            <h1 className="text-8xl">I&apos;m Geraldo</h1>
+            <h1 className="text-5xl md:text-8xl">I&apos;m Geraldo</h1>
             <p className="capitalize font-sans">
               beginner web developer trying to learn and improve myself in the
               world of fullstack web developing
@@ -111,32 +111,32 @@ export default function Home() {
         </div>
       </section>
       {/* Projects */}
-      <section className="w-3/4 m-auto mt-10 flex flex-col gap-6 divide-y-8 divide-yellow-300">
+      <section className="md:w-3/4 m-auto mt-6 flex flex-col gap-6 divide-y-8 divide-yellow-300">
         <Heading name="My Projects📝" desc="some projects i have worked on" />
-        <div className="flex flex-row flex-wrap gap-4 pt-12">
-          <Carousel>
+        <div className="w-[70%] md:w-full m-auto flex justify-center gap-4 pt-6 md:pt-12">
+          <Carousel className="w-full">
             <CarouselContent>
               {projects.map((projectItem: any, index: number) => {
                 return (
-                  <CarouselItem key={index} className="basis-1/3">
-                    <div className="flex flex-col rounded-xl bg-white text-black w-full">
-                      <div className="overflow-hidden rounded-t-xl">
+                  <CarouselItem key={index} className="basis-full md:basis-1/3">
+                    <div className="flex flex-col rounded-xl bg-white text-black w-full h-4/5">
+                      <div className="overflow-hidden rounded-t-xl h-1/3">
                         <img
                           src={projectItem.image}
                           alt="project item"
-                          className="w-full hover:scale-110 transition duration-150 "
+                          className="w-full hover:scale-110 transition duration-150 object-contain"
                         />
                       </div>
                       <div className="p-4 flex flex-col gap-6">
                         <div>
-                          <h1 className="text-2xl font-semibold">
+                          <h1 className="text-xl md:text-2xl font-semibold">
                             {projectItem.name}
                           </h1>
                           <p className="text-sm font-sans">
                             {projectItem.desc}
                           </p>
                         </div>
-                        <div>
+                        <div className="hidden md:block">
                           <h1 className="text-xl font-semibold">Tech Stack</h1>
                           <div className="flex flex-row gap-2 text-white flex-wrap">
                             {projectItem.techStack.map(
@@ -153,11 +153,11 @@ export default function Home() {
                             )}
                           </div>
                         </div>
-                        <div>
+                        <div className="hidden md:block">
                           <h1 className="text-xl font-semibold">Role</h1>
                           <p className="text-sm font-sans">Full Stack Dev</p>
                         </div>
-                        <div className="flex justify-end p-1">
+                        <div className="flex justify-center md:justify-end p-1">
                           <button className="p-2 rounded-md bg-black text-white">
                             View Project
                           </button>
@@ -174,14 +174,14 @@ export default function Home() {
         </div>
       </section>
       {/* Tech Stack */}
-      <section className="w-3/4 m-auto mt-32 flex flex-col gap-6 divide-y-8 divide-yellow-300">
+      <section className="w-[90%] md:w-3/4 m-auto mt-6 md:mt-32 flex flex-col gap-6 divide-y-8 divide-yellow-300">
         <Heading name="Tech Stack⚙️" desc="the tools i've used" />
-        <div className="flex flex-row flex-wrap justify-center gap-6 pt-12">
+        <div className="flex flex-row flex-wrap justify-center gap-6 pt-6">
           {tools.map((val: any, index: number) => {
             return (
               <div
                 key={index}
-                className="p-6 text-6xl text-black bg-white flex flex-col items-center gap-6 rounded-xl hover:scale-105 transition duration-100"
+                className="p-4 md:p-6 text-2xl md:text-6xl text-black bg-white flex flex-col items-center md:gap-6 rounded-xl hover:scale-105 transition duration-100"
               >
                 {val.image}
                 <p>{val.name}</p>
@@ -191,9 +191,9 @@ export default function Home() {
         </div>
       </section>
       {/* About Me */}
-      <section className="w-3/4 m-auto mt-32 flex flex-col gap-6 divide-y-8 divide-yellow-300">
+      <section className="w-[90%] md:w-3/4 m-auto mt-32 flex flex-col gap-6 divide-y-8 divide-yellow-300">
         <Heading name="About Me😁" desc="let's get to know eachother" />
-        <p className="pt-6 text-xl text-white text-center">
+        <p className="pt-6 text-base md:text-xl text-white text-center">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
           consequatur doloribus soluta adipisci nam illum, odio alias saepe
           inventore excepturi pariatur voluptatibus facilis magni accusantium
@@ -207,7 +207,7 @@ export default function Home() {
       <Footer />
       <a
         href="#"
-        className="fixed p-2 rounded-md text-3xl bg-yellow-300 text-black right-10 bottom-10 hover:-translate-y-4 transition duration-150"
+        className="fixed p-2 rounded-md text-3xl bg-yellow-300 text-black right-4 md:right-10 bottom-4 md:bottom-10 hover:-translate-y-4 transition duration-150"
       >
         <FaArrowUp />
       </a>
