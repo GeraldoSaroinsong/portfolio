@@ -6,7 +6,7 @@ const Navbar = () => {
       <div className="w-3/4 m-auto flex justify-between items-center">
         <h1 className="text-3xl font-semibold flex flex-col">
           <span className="bg-black text-yellow-300 w-full">Sar</span>
-          <span className="underline underline-offset-8">Designs</span>
+          <span className="underline underline-offset-8">Portfolio</span>
         </h1>
         <h1 className="text-7xl font-bold">#</h1>
         <button
