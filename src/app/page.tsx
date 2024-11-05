@@ -111,7 +111,7 @@ export default function Home() {
         </div>
       </section>
       {/* Projects */}
-      <section className="md:w-3/4 m-auto mt-6 flex flex-col gap-6 divide-y-8 divide-yellow-300">
+      <section className="md:w-3/4 m-auto mt-12 flex flex-col gap-6 divide-y-8 divide-yellow-300">
         <Heading name="My Projects📝" desc="some projects i have worked on" />
         <div className="w-[70%] md:w-full m-auto flex justify-center gap-4 pt-6 md:pt-12">
           <Carousel className="w-full">
@@ -174,14 +174,14 @@ export default function Home() {
         </div>
       </section>
       {/* Tech Stack */}
-      <section className="w-[90%] md:w-3/4 m-auto mt-6 md:mt-32 flex flex-col gap-6 divide-y-8 divide-yellow-300">
+      <section className="w-[90%] md:w-3/4 m-auto mt-1 md:mt-32 flex flex-col gap-6 divide-y-8 divide-yellow-300">
         <Heading name="Tech Stack⚙️" desc="the tools i've used" />
-        <div className="flex flex-row flex-wrap justify-center gap-6 pt-6">
+        <div className="flex flex-row flex-wrap justify-center gap-4 pt-6">
           {tools.map((val: any, index: number) => {
             return (
               <div
                 key={index}
-                className="p-4 md:p-6 text-2xl md:text-6xl text-black bg-white flex flex-col items-center md:gap-6 rounded-xl hover:scale-105 transition duration-100"
+                className="p-2 md:p-6 text-2xl md:text-6xl text-black bg-white flex flex-col items-center md:gap-6 rounded-xl hover:scale-105 transition duration-100"
               >
                 {val.image}
                 <p>{val.name}</p>
