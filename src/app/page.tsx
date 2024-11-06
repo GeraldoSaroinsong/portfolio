@@ -133,14 +133,16 @@ export default function Home() {
                         className="w-full hover:scale-110 transition duration-150 object-contain"
                       />
                     </div>
-                    <div className="p-4 flex flex-col gap-6 justify-between h-1/2">
+                    <div className="p-4 flex flex-col gap-2 md:gap-6 justify-between h-1/2">
                       <div>
                         <h1 className="text-xl md:text-2xl font-semibold">
                           {projectItem.name}
                         </h1>
-                        <p className="text-sm font-sans">{projectItem.desc}</p>
+                        <p className="text-sm font-sans hidden md:block">
+                          {projectItem.desc}
+                        </p>
                       </div>
-                      <div className="hidden md:block">
+                      <div>
                         <h1 className="text-xl font-semibold">Tech Stack</h1>
                         <div className="flex flex-row gap-2 text-white flex-wrap">
                           {projectItem.techStack.map(
@@ -157,7 +159,7 @@ export default function Home() {
                           )}
                         </div>
                       </div>
-                      <div className="hidden md:block">
+                      <div>
                         <h1 className="text-xl font-semibold">Role</h1>
                         <p className="text-sm font-sans">Full Stack Dev</p>
                       </div>
