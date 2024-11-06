@@ -106,11 +106,13 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-col gap-4 items-center ">
-            <h1 className="capitalize text-white">Check out my github</h1>
+            <h1 className="capitalize text-white font-semibold">
+              Check out my github
+            </h1>
             <a
               href="https://github.com/GeraldoSaroinsong"
               target="_blank"
-              className="p-2 bg-yellow-400 rounded-md w-fit hover:scale-110 transition duration-100 text-black"
+              className="p-2 bg-yellow-400 rounded-md w-fit hover:scale-110 transition duration-100 text-black font-semibold"
             >
               Click Here
             </a>
@@ -121,26 +123,24 @@ export default function Home() {
       <section className="md:w-3/4 m-auto mt-12 flex flex-col gap-6 divide-y-8 divide-yellow-400">
         <Heading name="My Projects📝" desc="some projects i have worked on" />
         <Carousel className="w-[90%] md:w-full m-auto pt-6 md:pt-12">
-          <CarouselContent>
+          <CarouselContent className="h-[75vh]">
             {projects.map((projectItem: any, index: number) => {
               return (
                 <CarouselItem key={index} className="basis-full md:basis-1/3">
                   <div className="flex flex-col rounded-xl pb-4 md:pb-0 bg-white text-black w-full h-full">
-                    <div className="overflow-hidden rounded-t-xl h-1/2">
+                    <div className="overflow-hidden rounded-t-xl h-1/3">
                       <img
                         src={projectItem.image}
                         alt="project item"
                         className="w-full hover:scale-110 transition duration-150 object-contain"
                       />
                     </div>
-                    <div className="p-4 flex flex-col gap-2 md:gap-6 justify-between h-1/2">
+                    <div className="p-4 flex flex-col justify-between gap-4 md:gap-6 h-3/4">
                       <div>
                         <h1 className="text-xl md:text-2xl font-semibold">
                           {projectItem.name}
                         </h1>
-                        <p className="text-sm font-sans hidden md:block">
-                          {projectItem.desc}
-                        </p>
+                        <p className="text-xs font-sans">{projectItem.desc}</p>
                       </div>
                       <div>
                         <h1 className="text-xl font-semibold">Tech Stack</h1>
