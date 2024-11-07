@@ -3,7 +3,7 @@ import { FaHtml5 } from "react-icons/fa";
 import { FaCss3 } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io";
 import { SiTypescript } from "react-icons/si";
-import { RiTailwindCssFill } from "react-icons/ri";
+import { RiReactjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { RiNextjsFill } from "react-icons/ri";
 import {
   Carousel,
@@ -16,12 +16,9 @@ import Heading from "@/components/Heading";
 import Footer from "@/components/Footer";
 import contentfulClient from "@/lib/contentfulClient";
 import {
-  TypeWebDevPortfolio,
-  TypeWebDevPortfolioFields,
   TypeWebDevPortfolioSkeleton,
   TypeWebDevPortfolioAsset,
 } from "@/types/portfolio.type";
-import RichText from "@/components/richText";
 
 const getPortfolio = async () => {
   try {
@@ -37,49 +34,6 @@ const getPortfolio = async () => {
 };
 
 export default async function Home() {
-  const projects = [
-    {
-      name: "But Umm",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam est perferendis quasi eius distinctio, excepturi laborum harum maxime! Quam numquam fugiat ratione aliquam consequuntur, aliquid ipsum delectus nostrum. Iste, molestiae.",
-      techStack: ["Tailwind", "Next", "Express", "Shadcn UI"],
-      role: "Full Stack Dev",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFxpwuSqbULqo32gazM4OTlH4cG5ic_pqy9g&s",
-    },
-    {
-      name: "Mosbius Designs",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam est perferendis quasi eius distinctio, excepturi laborum harum maxime! Quam numquam fugiat ratione aliquam consequuntur, aliquid ipsum delectus nostrum. Iste, molestiae.",
-      techStack: ["Tailwind", "Next"],
-      role: "Full Stack Dev",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrZwdOYFhiVrmrfBDuvwaJz0GH_3JazCxmAA&s",
-    },
-    {
-      name: "GNB Online",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam est perferendis quasi eius distinctio, excepturi laborum harum maxime! Quam numquam fugiat ratione aliquam consequuntur, aliquid ipsum delectus nostrum. Iste, molestiae.",
-      techStack: ["Tailwind", "Angular", "Daisy UI"],
-      role: "Full Stack Dev",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIu3KXAbqLdQ_tz8PR1ZHDWrQ5jRpOQ-EsMA&s",
-    },
-    {
-      name: "Slap Bet",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam est perferendis quasi eius distinctio, excepturi laborum harum maxime! Quam numquam fugiat ratione aliquam consequuntur, aliquid ipsum delectus nostrum. Iste, molestiae.",
-      techStack: ["Tailwind", "Next", "Express", "MUI"],
-      role: "Full Stack Dev",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGXoUEgdrbKN2NnqrnqfjbdqczDfXEY-2WQg&s",
-    },
-    {
-      name: "MacLaren's",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam est perferendis quasi eius distinctio, excepturi laborum harum maxime! Quam numquam fugiat ratione aliquam consequuntur, aliquid ipsum delectus nostrum. Iste, molestiae.",
-      techStack: ["Tailwind", "Next", "Express", "MUI"],
-      role: "Full Stack Dev",
-      image:
-        "https://www.berlin-welcomecard.de/system/files/styles/metatag_og_large/private/images/logo_web.jpg?itok=Nm16pbgp",
-    },
-  ];
-
   const tools = [
     {
       name: "HTML",
@@ -110,6 +64,11 @@ export default async function Home() {
       name: "Next JS",
       image: <RiNextjsFill />,
       link: "https://nextjs.org/",
+    },
+    {
+      name: "React JS",
+      image: <RiReactjsFill />,
+      link: "https://react.dev/",
     },
   ];
 
