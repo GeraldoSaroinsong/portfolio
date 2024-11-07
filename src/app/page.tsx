@@ -20,6 +20,9 @@ import {
   TypeWebDevPortfolioAsset,
 } from "@/types/portfolio.type";
 
+export const revalidate = 0;
+export const dynamics = "force-dynamic";
+
 const getPortfolio = async () => {
   try {
     const portfolio =
