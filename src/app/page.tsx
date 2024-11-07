@@ -14,8 +14,29 @@ import {
 } from "@/components/ui/carousel";
 import Heading from "@/components/Heading";
 import Footer from "@/components/Footer";
+import contentfulClient from "@/lib/contentfulClient";
+import {
+  TypeWebDevPortfolio,
+  TypeWebDevPortfolioFields,
+  TypeWebDevPortfolioSkeleton,
+  TypeWebDevPortfolioAsset,
+} from "@/types/portfolio.type";
+import RichText from "@/components/richText";
 
-export default function Home() {
+const getPortfolio = async () => {
+  try {
+    const portfolio =
+      await contentfulClient.getEntries<TypeWebDevPortfolioSkeleton>({
+        content_type: "webDevPortfolio",
+      });
+    return portfolio;
+    console.log(portfolio.items[0].fields.description);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export default async function Home() {
   const projects = [
     {
       name: "But Umm",
@@ -92,10 +113,11 @@ export default function Home() {
     },
   ];
 
+  const portfolio = await getPortfolio();
   return (
     <div className="font-mono relative">
       {/* Jumbotron */}
-      <section className="flex flex-col items-center w-full h-[90vh]">
+      <section className="flex flex-col items-center w-full md:w-3/4 m-auto h-[90vh]">
         <div className="w-[90%] md:w-1/2 flex flex-col m-auto p-4 rounded-md gap-6 text-center text-white">
           <h1 className="text-xl md:text-3xl">Hello World👋</h1>
           <div className="border-8 border-yellow-400 p-6 flex flex-col gap-8">
@@ -124,55 +146,69 @@ export default function Home() {
         <Heading name="My Projects📝" desc="some projects i have worked on" />
         <Carousel className="w-[90%] md:w-full m-auto pt-6 md:pt-12">
           <CarouselContent className="h-[75vh]">
-            {projects.map((projectItem: any, index: number) => {
-              return (
-                <CarouselItem key={index} className="basis-full md:basis-1/3">
-                  <div className="flex flex-col rounded-xl pb-4 md:pb-0 bg-white text-black w-full h-full">
-                    <div className="overflow-hidden rounded-t-xl h-1/3">
-                      <img
-                        src={projectItem.image}
-                        alt="project item"
-                        className="w-full hover:scale-110 transition duration-150 object-contain"
-                      />
-                    </div>
-                    <div className="p-4 flex flex-col justify-between gap-4 md:gap-6 h-3/4">
-                      <div>
-                        <h1 className="text-xl md:text-2xl font-semibold">
-                          {projectItem.name}
-                        </h1>
-                        <p className="text-xs font-sans">{projectItem.desc}</p>
+            {portfolio &&
+              portfolio.items?.map((portfolioItem: any, index: number) => {
+                return (
+                  <CarouselItem key={index} className="basis-full md:basis-1/3">
+                    <div className="flex flex-col rounded-xl pb-4 md:pb-0 bg-white text-black w-full h-full">
+                      <div className="overflow-hidden rounded-t-xl h-1/3">
+                        <img
+                          src={`https:${
+                            (
+                              portfolioItem.fields
+                                .image as TypeWebDevPortfolioAsset
+                            )?.fields.file.url
+                          }`}
+                          alt="project item"
+                          className="w-full hover:scale-110 transition duration-150 object-contain"
+                        />
                       </div>
-                      <div>
-                        <h1 className="text-xl font-semibold">Tech Stack</h1>
-                        <div className="flex flex-row gap-2 text-white flex-wrap">
-                          {projectItem.techStack.map(
-                            (tech: any, index: number) => {
-                              return (
-                                <p
-                                  key={index}
-                                  className="p-1 bg-black rounded-md"
-                                >
-                                  {tech}
-                                </p>
-                              );
-                            }
-                          )}
+                      <div className="p-4 flex flex-col justify-between gap-4 md:gap-6 h-3/4">
+                        <div>
+                          <h1 className="text-xl md:text-2xl font-semibold">
+                            {portfolioItem.fields.title}
+                          </h1>
+                          <p className="text-xs font-sans">
+                            {portfolioItem.fields.description}
+                          </p>
+                        </div>
+                        <div>
+                          <h1 className="text-xl font-semibold">Tech Stack</h1>
+                          <div className="flex flex-row gap-2 text-white flex-wrap">
+                            {portfolioItem.fields.techStack.map(
+                              (tech: any, index: number) => {
+                                return (
+                                  <p
+                                    key={index}
+                                    className="p-1 bg-black rounded-md"
+                                  >
+                                    {tech}
+                                  </p>
+                                );
+                              }
+                            )}
+                          </div>
+                        </div>
+                        <div>
+                          <h1 className="text-xl font-semibold">Role</h1>
+                          <p className="text-sm font-sans">
+                            {portfolioItem.fields.role}
+                          </p>
+                        </div>
+                        <div className="flex justify-center md:justify-end p-1">
+                          <a
+                            href={portfolioItem.fields.link}
+                            target="_blank"
+                            className="p-2 rounded-md bg-black text-white"
+                          >
+                            View Project
+                          </a>
                         </div>
                       </div>
-                      <div>
-                        <h1 className="text-xl font-semibold">Role</h1>
-                        <p className="text-sm font-sans">Full Stack Dev</p>
-                      </div>
-                      <div className="flex justify-center md:justify-end p-1">
-                        <button className="p-2 rounded-md bg-black text-white">
-                          View Project
-                        </button>
-                      </div>
                     </div>
-                  </div>
-                </CarouselItem>
-              );
-            })}
+                  </CarouselItem>
+                );
+              })}
           </CarouselContent>
           <CarouselPrevious className="hidden md:flex items-center" />
           <CarouselNext className="hidden md:flex items-center" />
