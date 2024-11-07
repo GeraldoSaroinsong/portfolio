@@ -21,7 +21,7 @@ import {
 } from "@/types/portfolio.type";
 
 export const revalidate = 0;
-export const dynamics = "force-dynamic";
+export const dynamic = "force-dynamic";
 
 const getPortfolio = async () => {
   try {
