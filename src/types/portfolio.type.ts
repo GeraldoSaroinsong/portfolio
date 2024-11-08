@@ -6,6 +6,21 @@ import type {
   LocaleCode,
 } from "contentful";
 
+export interface TypeTechStackFields {
+  name: EntryFieldTypes.Symbol;
+  image: EntryFieldTypes.AssetLink;
+  link: EntryFieldTypes.Symbol;
+}
+
+export type TypeTechStackSkeleton = EntrySkeletonType<
+  TypeTechStackFields,
+  "techStack"
+>;
+export type TypeTechStack<
+  Modifiers extends ChainModifiers,
+  Locales extends LocaleCode = LocaleCode
+> = Entry<TypeTechStackSkeleton, Modifiers, Locales>;
+
 export interface TypeWebDevPortfolioFields {
   title: EntryFieldTypes.Symbol;
   description: EntryFieldTypes.Text;
@@ -14,6 +29,15 @@ export interface TypeWebDevPortfolioFields {
   link: EntryFieldTypes.Symbol;
   image: EntryFieldTypes.AssetLink;
 }
+
+export type TypeWebDevPortfolioSkeleton = EntrySkeletonType<
+  TypeWebDevPortfolioFields,
+  "webDevPortfolio"
+>;
+export type TypeWebDevPortfolio<
+  Modifiers extends ChainModifiers,
+  Locales extends LocaleCode = LocaleCode
+> = Entry<TypeWebDevPortfolioSkeleton, Modifiers, Locales>;
 
 export interface TypeWebDevPortfolioAsset {
   sys: { id: string };
@@ -32,12 +56,3 @@ export interface TypeWebDevPortfolioAsset {
     };
   };
 }
-
-export type TypeWebDevPortfolioSkeleton = EntrySkeletonType<
-  TypeWebDevPortfolioFields,
-  "webDevPortfolio"
->;
-export type TypeWebDevPortfolio<
-  Modifiers extends ChainModifiers,
-  Locales extends LocaleCode = LocaleCode
-> = Entry<TypeWebDevPortfolioSkeleton, Modifiers, Locales>;

@@ -1,81 +1,16 @@
 import { FaArrowUp } from "react-icons/fa";
-import { FaHtml5 } from "react-icons/fa";
-import { FaCss3 } from "react-icons/fa";
-import { IoLogoJavascript } from "react-icons/io";
-import { SiTypescript } from "react-icons/si";
-import { RiReactjsFill, RiTailwindCssFill } from "react-icons/ri";
-import { RiNextjsFill } from "react-icons/ri";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import Heading from "@/components/Heading";
 import Footer from "@/components/Footer";
-import contentfulClient from "@/lib/contentfulClient";
-import {
-  TypeWebDevPortfolioSkeleton,
-  TypeWebDevPortfolioAsset,
-} from "@/types/portfolio.type";
+import { TypeWebDevPortfolioAsset } from "@/types/portfolio.type";
+import { getTech } from "@/lib/fetchData";
+import CarouselComponent from "@/components/Carousel";
+import Image from "next/image";
 
 export const revalidate = 0;
 export const dynamic = "force-dynamic";
 
-const getPortfolio = async () => {
-  try {
-    const portfolio =
-      await contentfulClient.getEntries<TypeWebDevPortfolioSkeleton>({
-        content_type: "webDevPortfolio",
-      });
-    return portfolio;
-    console.log(portfolio.items[0].fields.description);
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 export default async function Home() {
-  const tools = [
-    {
-      name: "HTML",
-      image: <FaHtml5 />,
-      link: "https://www.w3schools.com/html/",
-    },
-    {
-      name: "CSS",
-      image: <FaCss3 />,
-      link: "https://www.w3schools.com/css/",
-    },
-    {
-      name: "Javascript",
-      image: <IoLogoJavascript />,
-      link: "https://www.javascript.com/",
-    },
-    {
-      name: "Typescript",
-      image: <SiTypescript />,
-      link: "https://www.typescriptlang.org/",
-    },
-    {
-      name: "Tailwind CSS",
-      image: <RiTailwindCssFill />,
-      link: "https://tailwindcss.com/",
-    },
-    {
-      name: "Next JS",
-      image: <RiNextjsFill />,
-      link: "https://nextjs.org/",
-    },
-    {
-      name: "React JS",
-      image: <RiReactjsFill />,
-      link: "https://react.dev/",
-    },
-  ];
-
-  const portfolio = await getPortfolio();
+  const tech = await getTech();
   return (
     <div className="font-mono relative">
       {/* Jumbotron */}
@@ -106,93 +41,35 @@ export default async function Home() {
       {/* Projects */}
       <section className="md:w-3/4 m-auto mt-12 flex flex-col gap-6 divide-y-8 divide-yellow-400">
         <Heading name="My Projects📝" desc="some projects i have worked on" />
-        <Carousel className="w-[90%] md:w-full m-auto pt-6 md:pt-12">
-          <CarouselContent className="h-[75vh]">
-            {portfolio &&
-              portfolio.items?.map((portfolioItem: any, index: number) => {
-                return (
-                  <CarouselItem key={index} className="basis-full md:basis-1/3">
-                    <div className="flex flex-col rounded-xl pb-4 md:pb-0 bg-white text-black w-full h-full">
-                      <div className="overflow-hidden rounded-t-xl h-1/3">
-                        <img
-                          src={`https:${
-                            (
-                              portfolioItem.fields
-                                .image as TypeWebDevPortfolioAsset
-                            )?.fields.file.url
-                          }`}
-                          alt="project item"
-                          className="w-full hover:scale-110 transition duration-150 object-contain"
-                        />
-                      </div>
-                      <div className="p-4 flex flex-col justify-between gap-4 md:gap-6 h-3/4">
-                        <div>
-                          <h1 className="text-xl md:text-2xl font-semibold">
-                            {portfolioItem.fields.title}
-                          </h1>
-                          <p className="text-xs font-sans">
-                            {portfolioItem.fields.description}
-                          </p>
-                        </div>
-                        <div>
-                          <h1 className="text-xl font-semibold">Tech Stack</h1>
-                          <div className="flex flex-row gap-2 text-white flex-wrap">
-                            {portfolioItem.fields.techStack.map(
-                              (tech: any, index: number) => {
-                                return (
-                                  <p
-                                    key={index}
-                                    className="p-1 bg-black rounded-md"
-                                  >
-                                    {tech}
-                                  </p>
-                                );
-                              }
-                            )}
-                          </div>
-                        </div>
-                        <div>
-                          <h1 className="text-xl font-semibold">Role</h1>
-                          <p className="text-sm font-sans">
-                            {portfolioItem.fields.role}
-                          </p>
-                        </div>
-                        <div className="flex justify-center md:justify-end p-1">
-                          <a
-                            href={portfolioItem.fields.link}
-                            target="_blank"
-                            className="p-2 rounded-md bg-black text-white"
-                          >
-                            View Project
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </CarouselItem>
-                );
-              })}
-          </CarouselContent>
-          <CarouselPrevious className="hidden md:flex items-center" />
-          <CarouselNext className="hidden md:flex items-center" />
-        </Carousel>
+        <CarouselComponent />
       </section>
       {/* Tech Stack */}
       <section className="w-[90%] md:w-3/4 m-auto mt-32 flex flex-col gap-6 divide-y-8 divide-yellow-400">
         <Heading name="Tech Stack⚙️" desc="the tools i've used" />
         <div className="flex flex-row flex-wrap justify-center gap-4 pt-6">
-          {tools.map((val: any, index: number) => {
-            return (
-              <a
-                key={index}
-                href={val.link}
-                target="_blank"
-                className="p-2 md:p-4 text-3xl md:text-6xl text-black bg-white flex items-center gap-2 rounded-xl hover:scale-105 transition duration-100"
-              >
-                {val.image}
-                <p className="text-base md:text-2xl font-sans">{val.name}</p>
-              </a>
-            );
-          })}
+          {tech &&
+            tech.items?.map((techItems: any, index: number) => {
+              return (
+                <a
+                  key={index}
+                  href={techItems.fields.link}
+                  target="_blank"
+                  className="p-2 md:p-4 text-3xl md:text-6xl text-black bg-white flex items-center gap-2 rounded-xl hover:scale-105 transition duration-100"
+                >
+                  <Image
+                    src={`https:${
+                      (techItems.fields.image as TypeWebDevPortfolioAsset)
+                        ?.fields.file.url
+                    }`}
+                    alt="tech stack item"
+                    className="w-[50px]"
+                  />
+                  <p className="text-base md:text-2xl font-sans">
+                    {techItems.fields.name}
+                  </p>
+                </a>
+              );
+            })}
         </div>
       </section>
       {/* About Me */}
