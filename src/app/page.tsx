@@ -63,6 +63,8 @@ export default async function Home() {
                     }`}
                     alt="tech stack item"
                     className="w-[50px]"
+                    width={300}
+                    height={300}
                   />
                   <p className="text-base md:text-2xl font-sans">
                     {techItems.fields.name}
@@ -89,7 +91,7 @@ export default async function Home() {
       <Footer />
       <a
         href="#"
-        className="fixed p-2 rounded-md text-3xl bg-yellow-400 text-black right-4 md:right-10 bottom-4 md:bottom-10 hover:-translate-y-4 transition duration-150"
+        className="fixed p-2 rounded-md text-3xl bg-yellow-400 text-black right-4 md:right-10 bottom-4 md:bottom-10"
       >
         <FaArrowUp />
       </a>

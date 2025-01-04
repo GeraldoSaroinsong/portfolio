@@ -28,6 +28,8 @@ const CarouselComponent = async () => {
                       }`}
                       alt="project item"
                       className="w-full hover:scale-110 transition duration-150 object-contain"
+                      width={300}
+                      height={300}
                     />
                   </div>
                   <div className="p-4 flex flex-col justify-between gap-4 md:gap-6 h-3/4">
